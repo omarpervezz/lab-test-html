@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>medical test booking and billing system</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="d-flex min-vh-100 justify-content-center align-items-center">
+    <div class="container py-3 px-3">
+      <!-- Row with Image Placeholder + Header Buttons -->
+      <div class="row mb-2 align-items-start">
+        <!-- Left Side Box (e.g., Logo or Blank) -->
+        <div class="col-12 col-md-2 mb-2 mb-md-0">
+          <div class="border bg-white" style="width: 100%; height: 100px"></div>
+        </div>
+
+        <!-- Right Side Content -->
+        <div class="col-12 col-md-10">
+          <!-- Top Row: Header Buttons  -->
+          <div class="row row-cols-1 row-cols-md-3 g-2 mb-2">
+            <div class="col">
+              <button type="button" class="form-control header-btn">
+                User Name
+              </button>
+            </div>
+            <div class="col">
+              <button type="button" class="form-control header-btn">
+                Branch Name
+              </button>
+            </div>
+            <div class="col">
+              <button type="button" class="form-control header-btn">
+                Password Reset with OTP
+              </button>
+            </div>
+          </div>
+
+          <!-- Middle Row: Print Buttons  -->
+          <div class="row">
+            <div class="col-12">
+              <div
+                class="d-flex flex-wrap justify-content-md-end justify-content-center gap-2"
+              >
+                <button class="btn btn-yellow">
+                  Print Daily Settlement – User 1
+                </button>
+                <button class="btn btn-yellow">
+                  Print Daily Settlement – User 2
+                </button>
+                <button class="btn btn-yellow">
+                  Print Daily Settlement – User 3
+                </button>
+                <button class="btn btn-yellow">Print Daily Summary</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Navigation -->
+      <ul
+        class="nav nav-tabs custom-tabs border-0 w-100 mb-3 d-flex justify-content-between gap-2 flex-wrap"
+        id="customTab"
+        role="tablist"
+      >
+        <li class="nav-item flex-fill" role="presentation">
+          <button
+            class="nav-link w-100 rounded-2"
+            id="registration-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#registration"
+            type="button"
+            role="tab"
+          >
+            Registration
+          </button>
+        </li>
+        <li class="nav-item flex-fill" role="presentation">
+          <button
+            class="nav-link w-100 active rounded-2"
+            id="phlebotomy-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#phlebotomy"
+            type="button"
+            role="tab"
+          >
+            Phlebotomy
+          </button>
+        </li>
+        <li class="nav-item flex-fill" role="presentation">
+          <button
+            class="nav-link w-100 rounded-2"
+            id="sample-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#sample"
+            type="button"
+            role="tab"
+          >
+            Sample Tracking
+          </button>
+        </li>
+        <li class="nav-item flex-fill" role="presentation">
+          <button
+            class="nav-link w-100 rounded-2"
+            id="blood-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#blood"
+            type="button"
+            role="tab"
+          >
+            Blood/Urine Tests
+          </button>
+        </li>
+        <li class="nav-item flex-fill" role="presentation">
+          <button
+            class="nav-link w-100 rounded-2"
+            id="body-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#body"
+            type="button"
+            role="tab"
+          >
+            Body Fluid Tests
+          </button>
+        </li>
+        <li class="nav-item flex-fill" role="presentation">
+          <button
+            class="nav-link rounded-2 w-100"
+            id="allergy-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#allergy"
+            type="button"
+            role="tab"
+          >
+            Allergy Testing
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <!-- Registration Tab Content -->
+        <div
+          class="tab-pane fade show"
+          id="registration"
+          role="tabpanel"
+          aria-labelledby="registration-tab"
+        >
+          <div>
+            <!-- Row 1: Reg No, Mobile No + OTP, Alternate Mobile No + OTP -->
+            <div class="row g-2 align-items-center mb-3">
+              <!-- Reg No -->
+              <div class="col-lg-3 col-md-6">
+                <input
+                  type="text"
+                  class="form-control header-input-style w-100"
+                  placeholder="Reg No : (Auto-Rolling no)"
+                />
+              </div>
+
+              <!-- Mobile No + OTP -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-center gap-1">
+                <input
+                  type="text"
+                  class="form-control header-input-style flex-fill"
+                  placeholder="Mobile No :"
+                />
+                <button class="btn-otp-style">OTP</button>
+                <input
+                  type="text"
+                  class="form-control text-center"
+                  placeholder="0000"
+                  style="width: 80px"
+                />
+              </div>
+
+              <!-- Alternate Mobile No + OTP + Code -->
+              <div class="col-lg-5 d-flex align-items-center gap-1">
+                <input
+                  type="text"
+                  class="form-control header-input-style flex-fill"
+                  placeholder="Alternate Mobile No :"
+                />
+                <button class="btn btn-otp-style">OTP</button>
+                <input
+                  type="text"
+                  class="form-control text-center"
+                  placeholder="0000"
+                  style="width: 80px"
+                />
+              </div>
+            </div>
+
+            <!-- Row 2: Patient Name, Email, Age, Sex, DOB, Timing -->
+            <div class="row g-2 align-items-center mb-3 flex-wrap">
+              <!-- Patient Name -->
+              <div class="col-lg-2 col-md-4">
+                <input
+                  type="text"
+                  class="form-control header-input-style"
+                  placeholder="Mr :"
+                />
+              </div>
+
+              <!-- Email -->
+              <div class="col-lg-3 col-md-4">
+                <input
+                  type="email"
+                  class="form-control header-input-style"
+                  placeholder="email"
+                />
+              </div>
+
+              <!-- Age -->
+              <div class="col-lg-1 col-md-4">
+                <input
+                  type="text"
+                  class="form-control header-input-style text-center"
+                  placeholder="Age :"
+                />
+              </div>
+
+              <!-- Sex -->
+              <div class="col-lg-1 col-md-4">
+                <input
+                  type="text"
+                  class="form-control header-input-style text-center"
+                  placeholder="Sex :"
+                />
+              </div>
+
+              <!-- DOB -->
+              <div class="col-lg-2 col-md-4">
+                <input
+                  type="text"
+                  class="form-control header-input-style text-center"
+                  placeholder="DOB :"
+                />
+              </div>
+
+              <!-- Timing -->
+              <div class="col-lg-3 col-md-4">
+                <input
+                  type="text"
+                  class="form-control header-input-style text-center"
+                  placeholder="Timing : (Auto)"
+                />
+              </div>
+            </div>
+
+            <!-- Row: Ref By Dr + Add Dr | B2B Source Name + Add B2B -->
+            <div class="row g-2 align-items-center mb-3">
+              <!-- Ref By Dr -->
+              <div class="col-lg-6 col-md-12">
+                <div class="d-flex align-items-stretch gap-1 w-100">
+                  <select class="form-control header-input-style flex-grow-1">
+                    <option selected>Ref By Dr. : / SELF / SELF-HC-CODE</option>
+                    <option>Dr. Ahmed</option>
+                    <option>SELF</option>
+                    <option>HC-CODE</option>
+                  </select>
+                  <button
+                    class="add-doctor-btn btn btn-yellow d-flex align-items-center gap-2"
+                  >
+                    <strong>Add Dr</strong>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="red"
+                    >
+                      <rect x="7" y="2" width="2" height="12" />
+                      <rect x="2" y="7" width="12" height="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- B2B Source Name -->
+              <div class="col-lg-6 col-md-12">
+                <div class="d-flex align-items-stretch gap-1 w-100">
+                  <input
+                    type="text"
+                    class="form-control header-input-style flex-grow-1"
+                    placeholder="B2B Source Name :"
+                  />
+                  <button
+                    class="btn btn-yellow d-flex align-items-center gap-2"
+                  >
+                    <strong>Add B2B</strong>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="red"
+                    >
+                      <rect x="7" y="2" width="2" height="12" />
+                      <rect x="2" y="7" width="12" height="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div id="dr-form-container" class="mb-3"></div>
+            <!-- Test Selection UI -->
+            <div class="test-selection-box mb-4">
+              <!-- Row: Select Test + Add New Test Button -->
+              <div class="row g-2 mb-3">
+                <div class="col-md-10">
+                  <select
+                    class="test-select form-control header-input-style"
+                    data-section="registration"
+                  >
+                    <option disabled selected>Select a test</option>
+
+                    <option data-cost="450" data-sample="Serum">
+                      CRP - C Reactive Protein
+                    </option>
+
+                    <option data-cost="0" data-sample="Sodium Heparin">
+                      Karyotyping
+                    </option>
+
+                    <option data-cost="0" data-sample="EDTA(K2)-1.5ml">
+                      Mercury
+                    </option>
+
+                    <option data-cost="450" data-sample="Citrate - 1.5 ml">
+                      PT (Prothrombin Time)
+                    </option>
+
+                    <option data-cost="350" data-sample="EDTA - 2 ml">
+                      HbA1c – Glycosylated Haemoglobin
+                    </option>
+
+                    <option data-cost="699" data-sample="Multiple Samples">
+                      Dia check Pack – 02 – Rs.699
+                    </option>
+
+                    <!-- Additional test entries -->
+                    <option data-cost="300" data-sample="Urine">
+                      Routine Urine Examination
+                    </option>
+
+                    <option data-cost="500" data-sample="Fasting Blood">
+                      Blood Sugar - Fasting
+                    </option>
+
+                    <option data-cost="550" data-sample="Postprandial Blood">
+                      Blood Sugar - Postprandial
+                    </option>
+
+                    <option data-cost="400" data-sample="Serum">
+                      Lipid Profile
+                    </option>
+
+                    <option data-cost="600" data-sample="Plasma">
+                      Liver Function Test (LFT)
+                    </option>
+                  </select>
+                </div>
+                <div class="col-md-2 text-end">
+                  <button
+                    class="btn btn-yellow w-100 d-flex align-items-center justify-content-center gap-1"
+                  >
+                    <span>Add New Test</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="red"
+                      viewBox="0 0 16 16"
+                    >
+                      <rect x="7" y="2" width="2" height="12" />
+                      <rect x="2" y="7" width="12" height="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="row g-2">
+                <!-- Left: Test Table -->
+                <div class="col-md-8">
+                  <div class="table-responsive mb-4">
+                    <table class="table table-bordered table-striped">
+                      <thead class="table-light">
+                        <tr>
+                          <th>Test Name</th>
+                          <th>Test Cost</th>
+                          <th>Sample Type</th>
+                          <th class="text-center">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody id="test-table-body-registration">
+                        <!-- Dynamically added rows will go here -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Right: Total Sample Volume -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-header text-center fw-bold text-primary">
+                      Total Sample Volume
+                    </div>
+                    <div class="card-body p-2">
+                      <table class="table table-borderless align-middle">
+                        <tbody>
+                          <tr>
+                            <td>S.Heparin - 00 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: green"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>L.Heparin - 00 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: darkgreen"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>EDTA(K2) - 00 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: plum"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Citrate - 1.5 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: skyblue"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Serum - 3.5 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: red"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>EDTA(K3) - 2.0 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: mediumorchid"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Sugar - F - 1.5 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: lightgray"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Sugar - PP - 1.5 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: lightsteelblue"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Urine - F - 20 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: blue"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Urine - PP - 20 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: dodgerblue"
+                              ></span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <span class="fw-bold">No of S.Barcodes</span>
+                        <div class="barcode-box">00</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- row -->
+            </div>
+
+            <div class="row g-2 due-collection-box">
+              <div class="col-md-5 border">
+                <div class="row g-2 align-items-center">
+                  <div class="col-md-3">
+                    <div class="row g-2">
+                      <div class="section-label">
+                        <div>Generate</div>
+                        <div>QR Code +</div>
+                        <div>Card Swipe</div>
+                      </div>
+                      <div class="section-label">
+                        <div>Due Close</div>
+                        <div>Bill Receipt</div>
+                        <div>Print + SMS +</div>
+                        <div>WhatsApp</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="row g-2 align-items-center">
+                      <div class="col-md-12">
+                        <div
+                          class="header-btn d-flex justify-content-center align-items-center"
+                        >
+                          Due Collection Details
+                        </div>
+                      </div>
+
+                      <div class="col-md-3">
+                        <button class="btn btn-otp-style w-100">OTP</button>
+                      </div>
+
+                      <div class="col-md-3">
+                        <input
+                          type="text"
+                          class="form-control text-center"
+                          placeholder="0000"
+                          style="width: 100%"
+                        />
+                      </div>
+
+                      <div class="col-md-6">
+                        <div
+                          class="header-btn d-flex justify-content-center align-items-center w-100 px-3"
+                        >
+                          Due closed + time
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <table
+                          class="table table-bordered text-center align-middle mb-0"
+                          style="border: 1px solid #167a7a"
+                        >
+                          <tbody>
+                            <tr>
+                              <td class="text-start">
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input me-2"
+                                />
+                                Cash
+                              </td>
+                              <td>Rs.000</td>
+                              <td class="text-start">Cash Collected by :</td>
+                            </tr>
+                            <tr>
+                              <td class="text-start">
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input me-2"
+                                />
+                                UPI
+                              </td>
+                              <td>Rs.000</td>
+                              <td class="text-start">UPI ID : (Auto)</td>
+                            </tr>
+                            <tr>
+                              <td class="text-start">
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input me-2"
+                                />
+                                CARD
+                              </td>
+                              <td>Rs.000</td>
+                              <td class="text-start">Transaction ID :</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="d-flex flex-column h-100">
+                  <div class="custom-border p-1 text-center fw-bold">Total</div>
+                  <div class="custom-border p-1 text-center fw-bold">
+                    Miscellaneous
+                  </div>
+                  <div class="custom-border p-1 text-center fw-bold">
+                    Discount :
+                  </div>
+                  <div class="custom-border p-1 text-center fw-bold">
+                    Net Amount
+                  </div>
+                  <div
+                    class="custom-border p-1 text-center fw-bold bg-warning mt-1"
+                  >
+                    Bill Receipt<br />
+                    Print + SMS<br />
+                    + WhatsApp
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <table
+                  class="table table-bordered text-center align-middle mb-0"
+                  style="border: 1px solid #167a7a"
+                >
+                  <tbody>
+                    <tr>
+                      <td class="text-start">
+                        <input type="checkbox" class="form-check-input me-2" />
+                        Cash
+                      </td>
+                      <td>Rs.000</td>
+                      <td class="text-start">Cash Collected by :</td>
+                    </tr>
+                    <tr>
+                      <td class="text-start">
+                        <input type="checkbox" class="form-check-input me-2" />
+                        UPI
+                      </td>
+                      <td>Rs.000</td>
+                      <td class="text-start">UPI ID : (Auto)</td>
+                    </tr>
+                    <tr>
+                      <td class="text-start">
+                        <input type="checkbox" class="form-check-input me-2" />
+                        CARD
+                      </td>
+                      <td>Rs.000</td>
+                      <td class="text-start">Transaction ID :</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3">
+                <div
+                  class="p-2 mb-2"
+                  style="background-color: #ffff99; border: 1px solid #167a7a"
+                >
+                  <strong>Dispatch:</strong>
+                  <span class="badge rounded-pill text-bg-success mx-1">W</span>
+                  <span class="badge rounded-pill text-bg-warning mx-1">D</span>
+                  <span class="badge rounded-pill text-bg-primary mx-1">P</span>
+                  <span class="badge rounded-pill text-bg-info mx-1">E</span>
+                </div>
+
+                <div class="border" style="background-color: #c0e9f5">
+                  <div
+                    class="d-flex justify-content-center align-items-center p-2 bg-light fw-bold border-bottom"
+                  >
+                    Edit Bill
+                  </div>
+
+                  <div class="d-flex gap-1 p-2">
+                    <button class="btn btn-otp-style">OTP</button>
+                    <input
+                      type="text"
+                      class="form-control text-center"
+                      placeholder="0000"
+                      style="width: 80px"
+                    />
+                    <button class="btn btn-sm btn-primary fw-bold">
+                      Update
+                    </button>
+                  </div>
+
+                  <div
+                    class="p-2 text-center fw-bold"
+                    style="background-color: #6bbf4e; color: #fff"
+                  >
+                    Edited Bill Print +<br />
+                    SMS + WhatsApp
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phlebotomy Tab Content -->
+        <div
+          class="tab-pane fade show active"
+          id="phlebotomy"
+          role="tabpanel"
+          aria-labelledby="phlebotomy-tab"
+        >
+          <div>
+            <!-- Row 1: Reg No, Mobile No + OTP, Alternate Mobile No + OTP -->
+            <div class="row g-2 align-items-center mb-3">
+              <!-- Reg No -->
+              <div class="col-lg-3 col-md-6">
+                <input
+                  type="text"
+                  class="form-control header-input-style w-100"
+                  placeholder="Reg No : (Auto-Rolling no)"
+                />
+              </div>
+
+              <!-- Mobile No + OTP -->
+              <div class="col-lg-3 col-md-6 d-flex align-items-center gap-1">
+                <input
+                  type="text"
+                  class="form-control header-input-style flex-fill"
+                  placeholder="Mobile No :"
+                />
+              </div>
+
+              <!-- Alternate Mobile No + OTP + Code -->
+              <div class="col-lg-3 d-flex align-items-center gap-1">
+                <input
+                  type="text"
+                  class="form-control header-input-style flex-fill"
+                  placeholder="Alternate Mobile No :"
+                />
+              </div>
+              <div
+                class="col-lg-3 d-flex align-items-center gap-1 custom-border header-btn btn-yellow px-1"
+              >
+                Barcode search
+              </div>
+            </div>
+
+            <!-- Row 2: Patient Name, Email, Age, Sex, DOB, Timing -->
+            <div class="row g-2 align-items-center mb-3 flex-wrap">
+              <!-- Patient Name -->
+              <div class="col-lg-2 col-md-4">
+                <input
+                  type="text"
+                  class="form-control header-input-style"
+                  placeholder="Name"
+                />
+              </div>
+
+              <!-- Email -->
+              <div class="col-lg-3 col-md-4">
+                <input
+                  type="email"
+                  class="form-control header-input-style"
+                  placeholder="email"
+                />
+              </div>
+
+              <!-- Age -->
+              <div class="col-lg-1 col-md-4">
+                <input
+                  type="text"
+                  class="form-control header-input-style text-center"
+                  placeholder="Age :"
+                />
+              </div>
+
+              <!-- Sex -->
+              <div class="col-lg-1 col-md-4">
+                <input
+                  type="text"
+                  class="form-control header-input-style text-center"
+                  placeholder="Sex :"
+                />
+              </div>
+
+              <!-- DOB -->
+              <div class="col-lg-2 col-md-4">
+                <input
+                  type="text"
+                  class="form-control header-input-style text-center"
+                  placeholder="DOB :"
+                />
+              </div>
+
+              <!-- Timing -->
+              <div class="col-lg-3 col-md-4">
+                <input
+                  type="text"
+                  class="form-control header-input-style text-center"
+                  placeholder="Timing : (Auto)"
+                />
+              </div>
+            </div>
+
+            <!-- Test Selection UI for phlebotomy-->
+            <div class="test-selection-box mb-4">
+              <!-- Row: Select Test + Add New Test Button -->
+              <div class="row g-2 mb-3">
+                <div class="col-md-10">
+                  <select
+                    class="test-select form-control header-input-style"
+                    data-section="phlebotomy"
+                  >
+                    <option disabled selected>Select a test</option>
+
+                    <option data-cost="450" data-sample="Serum">
+                      CRP - C Reactive Protein
+                    </option>
+
+                    <option data-cost="0" data-sample="Sodium Heparin">
+                      Karyotyping
+                    </option>
+
+                    <option data-cost="0" data-sample="EDTA(K2)-1.5ml">
+                      Mercury
+                    </option>
+
+                    <option data-cost="450" data-sample="Citrate - 1.5 ml">
+                      PT (Prothrombin Time)
+                    </option>
+
+                    <option data-cost="350" data-sample="EDTA - 2 ml">
+                      HbA1c – Glycosylated Haemoglobin
+                    </option>
+
+                    <option data-cost="699" data-sample="Multiple Samples">
+                      Dia check Pack – 02 – Rs.699
+                    </option>
+
+                    <!-- Additional test entries -->
+                    <option data-cost="300" data-sample="Urine">
+                      Routine Urine Examination
+                    </option>
+
+                    <option data-cost="500" data-sample="Fasting Blood">
+                      Blood Sugar - Fasting
+                    </option>
+
+                    <option data-cost="550" data-sample="Postprandial Blood">
+                      Blood Sugar - Postprandial
+                    </option>
+
+                    <option data-cost="400" data-sample="Serum">
+                      Lipid Profile
+                    </option>
+
+                    <option data-cost="600" data-sample="Plasma">
+                      Liver Function Test (LFT)
+                    </option>
+                  </select>
+                </div>
+                <div class="col-md-2 text-end">
+                  <button
+                    class="btn btn-yellow w-100 d-flex align-items-center justify-content-center gap-1"
+                  >
+                    <span>Add New Test</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="red"
+                      viewBox="0 0 16 16"
+                    >
+                      <rect x="7" y="2" width="2" height="12" />
+                      <rect x="2" y="7" width="12" height="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="row g-2">
+                <!-- Left: Test Table -->
+                <div class="col-md-6">
+                  <div class="table-responsive mb-4">
+                    <table class="table table-bordered table-striped">
+                      <thead class="table-light">
+                        <tr>
+                          <th>Test Name</th>
+                          <th>Test Cost</th>
+                          <th>Sample Type</th>
+                          <th class="text-center">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody id="test-table-body-phlebotomy">
+                        <!-- Dynamically added rows will go here -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Right: Total Sample Volume -->
+                <div class="col-md-3">
+                  <div class="card">
+                    <div class="card-header text-center fw-bold text-primary">
+                      Total Sample Volume
+                    </div>
+                    <div class="card-body p-2">
+                      <table class="table table-borderless align-middle">
+                        <tbody>
+                          <tr>
+                            <td>S.Heparin - 00 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: green"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>L.Heparin - 00 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: darkgreen"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>EDTA(K2) - 00 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: plum"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Citrate - 1.5 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: skyblue"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Serum - 3.5 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: red"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>EDTA(K3) - 2.0 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: mediumorchid"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Sugar - F - 1.5 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: lightgray"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Sugar - PP - 1.5 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: lightsteelblue"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Urine - F - 20 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: blue"
+                              ></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Urine - PP - 20 ml</td>
+                            <td>
+                              <span
+                                class="sample-color"
+                                style="background-color: dodgerblue"
+                              ></span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right: Barcode + Status Panel -->
+                <div class="col-md-3">
+                  <div class="barcode-status-wrapper d-flex flex-column gap-2">
+                    <!-- Green - Sample Collected -->
+                    <div
+                      class="d-flex align-items-center justify-content-between custom-border p-2 rounded"
+                    >
+                      <div class="text-truncate fw-bold">Barcode Code Scan</div>
+                      <span
+                        class="rounded-circle d-inline-block"
+                        style="
+                          width: 12px;
+                          height: 12px;
+                          background-color: green;
+                        "
+                      ></span>
+                      <div class="text-muted small">Date & Time</div>
+                    </div>
+
+                    <!-- Red - Sample Due -->
+                    <div
+                      class="d-flex align-items-center justify-content-between custom-border p-2 rounded"
+                    >
+                      <div class="text-truncate fw-bold">Barcode Code Scan</div>
+                      <span
+                        class="rounded-circle d-inline-block"
+                        style="width: 12px; height: 12px; background-color: red"
+                      ></span>
+                      <div class="text-danger small fw-bold">Sample Due</div>
+                    </div>
+
+                    <!-- Green - Sample Collected -->
+                    <div
+                      class="d-flex align-items-center justify-content-between custom-border p-2 rounded"
+                    >
+                      <div class="text-truncate fw-bold">Barcode Code Scan</div>
+                      <span
+                        class="rounded-circle d-inline-block"
+                        style="
+                          width: 12px;
+                          height: 12px;
+                          background-color: green;
+                        "
+                      ></span>
+                      <div class="text-muted small">10:22 AM</div>
+                    </div>
+
+                    <!-- Red - Sample Due -->
+                    <div
+                      class="d-flex align-items-center justify-content-between custom-border p-2 rounded"
+                    >
+                      <div class="text-truncate fw-bold">Barcode Code Scan</div>
+                      <span
+                        class="rounded-circle d-inline-block"
+                        style="width: 12px; height: 12px; background-color: red"
+                      ></span>
+                      <div class="text-danger small fw-bold">Sample Due</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- row -->
+            </div>
+            <div class="row g-1">
+              <div class="col-2">
+                <div
+                  class="form-control text-center bg-transparent custom-border"
+                >
+                  Fluoride - F - 01
+                </div>
+              </div>
+              <div class="col-2">
+                <div
+                  class="form-control text-center bg-transparent custom-border"
+                >
+                  Urine - F - 01
+                </div>
+              </div>
+              <div class="col-2">
+                <div
+                  class="form-control text-center bg-transparent custom-border"
+                >
+                  Citrate - 01
+                </div>
+              </div>
+              <div class="col-2">
+                <div
+                  class="form-control text-center bg-transparent custom-border"
+                >
+                  Syringe - 02
+                </div>
+              </div>
+
+              <div class="col-2">
+                <div
+                  class="form-control text-center bg-transparent custom-border"
+                >
+                  Fluoride - PP - 01
+                </div>
+              </div>
+              <div class="col-2">
+                <div
+                  class="form-control text-center bg-transparent custom-border"
+                >
+                  Urine - PP - 01
+                </div>
+              </div>
+              <div class="col-2">
+                <div
+                  class="form-control text-center bg-transparent custom-border"
+                >
+                  S.Heparin - 01
+                </div>
+              </div>
+              <div class="col-2">
+                <div
+                  class="form-control text-center bg-transparent custom-border"
+                >
+                  Needle – 02
+                </div>
+              </div>
+
+              <div class="col-2">
+                <div
+                  class="form-control text-center bg-transparent custom-border"
+                >
+                  EDTA - 01
+                </div>
+              </div>
+              <div class="col-2">
+                <div
+                  class="form-control text-center bg-transparent custom-border"
+                >
+                  Serum - 01
+                </div>
+              </div>
+              <div class="col-2">
+                <div
+                  class="form-control text-center bg-transparent custom-border"
+                >
+                  L.Heparin - 01
+                </div>
+              </div>
+              <div class="col-2">
+                <button class="btn btn-yellow w-100">Confirm</button>
+              </div>
+            </div>
+            <div class="row g-2 align-items-center mt-3">
+              <div class="col-md-6">
+                <div class="d-flex gap-2">
+                  <input
+                    type="text"
+                    class="form-control header-input-style"
+                    placeholder="Sampels Collected by :"
+                  />
+                  <button class="btn btn-yellow w-100">Submit</button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row g-2">
+                  <div class="col-12 d-flex align-items-center gap-2">
+                    <button
+                      class="btn btn-yellow flex-grow-1 text-start fw-bold"
+                    >
+                      Phlebotomy Summary
+                    </button>
+                    <input
+                      type="date"
+                      class="btn btn-primary text-white fw-bold"
+                      placeholder="From"
+                      style="min-width: 100px"
+                    />
+                    <input
+                      type="date"
+                      class="btn btn-primary text-white fw-bold"
+                      placeholder="To"
+                      style="min-width: 100px"
+                    />
+                  </div>
+
+                  <!-- Phlebotomy Summary Today -->
+                  <div class="col-12">
+                    <button class="btn btn-yellow w-100 fw-bold">
+                      Phlebotomy Summary Today
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Doctor Form -->
+    <div id="add-doctor-form" class="d-none mt-3">
+      <div class="row g-2">
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control header-input-style"
+            placeholder="B2B Source Name ( DR Name/ Clinic/Hos/Lab)"
+          />
+        </div>
+        <div class="col-md-3">
+          <input
+            type="text"
+            class="form-control header-input-style"
+            placeholder="Latitude : 00.000"
+          />
+        </div>
+        <div class="col-md-3">
+          <input
+            type="text"
+            class="form-control header-input-style"
+            placeholder="Longitude : 00.000"
+          />
+        </div>
+      </div>
+
+      <!-- Repeat for Dr 1 and Dr 2 blocks -->
+      <div class="row g-2 mt-2">
+        <div class="col-md-12">
+          <input
+            type="text"
+            class="form-control header-input-style"
+            placeholder="Dr Name with Initial & Qualification"
+          />
+        </div>
+        <div class="col-md-4 d-flex gap-1">
+          <input
+            type="text"
+            class="form-control header-input-style"
+            placeholder="Mobile No"
+          />
+          <button class="btn-otp-style">OTP</button>
+          <input
+            type="text"
+            class="form-control text-center"
+            placeholder="0000"
+            style="width: 80px"
+          />
+        </div>
+        <div class="col-md-2">
+          <input
+            type="text"
+            class="form-control header-input-style"
+            placeholder="Age"
+          />
+        </div>
+        <div class="col-md-2">
+          <input
+            type="text"
+            class="form-control header-input-style"
+            placeholder="Sex"
+          />
+        </div>
+        <div class="col-md-4">
+          <input
+            type="text"
+            class="form-control header-input-style"
+            placeholder="DOB"
+          />
+        </div>
+      </div>
+
+      <div class="row g-2 mt-2">
+        <div class="col-md-4 d-flex gap-1">
+          <input
+            type="text"
+            class="form-control header-input-style"
+            placeholder="Clinic Mobile No 1"
+          />
+          <button class="btn-otp-style">OTP</button>
+          <input
+            type="text"
+            class="form-control text-center"
+            placeholder="0000"
+            style="width: 80px"
+          />
+        </div>
+        <div class="col-md-4 d-flex gap-1">
+          <input
+            type="text"
+            class="form-control header-input-style"
+            placeholder="Clinic Mobile No 2"
+          />
+          <button class="btn-otp-style">OTP</button>
+          <input
+            type="text"
+            class="form-control text-center"
+            placeholder="0000"
+            style="width: 80px"
+          />
+        </div>
+      </div>
+      <div class="row g-2 mt-2">
+        <!-- Dr 1 Upload Block -->
+        <div class="col-md-6 text-center">
+          <div class="custom-border p-2">
+            <div class="text-danger fw-bold mb-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="red"
+              >
+                <rect x="7" y="2" width="2" height="12" />
+                <rect x="2" y="7" width="12" height="2" />
+              </svg>
+            </div>
+            <div class="mb-1">Upload Visiting Card</div>
+            <input
+              type="file"
+              class="form-control header-input-style mb-2"
+              accept="image/*,.pdf"
+            />
+
+            <div class="mb-1">Upload Letter Head</div>
+            <input
+              type="file"
+              class="form-control header-input-style mb-2"
+              accept="image/*,.pdf"
+            />
+
+            <div class="fw-bold mb-1">Dr 1</div>
+
+            <div class="mb-1">Upload Prescription Sheet</div>
+            <input
+              type="file"
+              class="form-control header-input-style"
+              accept="image/*,.pdf"
+            />
+          </div>
+        </div>
+
+        <!-- Dr 2 Upload Block -->
+        <div class="col-md-6 text-center">
+          <div class="custom-border p-2">
+            <div class="text-danger fw-bold mb-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="red"
+              >
+                <rect x="7" y="2" width="2" height="12" />
+                <rect x="2" y="7" width="12" height="2" />
+              </svg>
+            </div>
+            <div class="mb-1">Upload Visiting Card</div>
+            <input
+              type="file"
+              class="form-control header-input-style mb-2"
+              accept="image/*,.pdf"
+            />
+
+            <div class="mb-1">Upload Letter Head</div>
+            <input
+              type="file"
+              class="form-control header-input-style mb-2"
+              accept="image/*,.pdf"
+            />
+
+            <div class="fw-bold mb-1">Dr 2</div>
+
+            <div class="mb-1">Upload Prescription Sheet</div>
+            <input
+              type="file"
+              class="form-control header-input-style"
+              accept="image/*,.pdf"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Dr 2 block similarly -->
+      <div class="row g-2 mt-3">
+        <div class="col-md-6">
+          <button class="btn btn-yellow w-100">Submit for Approval</button>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-success w-100">Approved</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle (with Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+  </body>
+</html>

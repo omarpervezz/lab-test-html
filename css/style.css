@@ -1,0 +1,207 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+}
+
+:root {
+  --border-green: #529154;
+  --bg-seafoam: #32cccc;
+}
+.container {
+  background-color: #32cccc;
+}
+.header-btn {
+  background-color: #6ddad8;
+  border: 1px solid var(--border-green, #1b6e6e);
+  color: #000307;
+  font-weight: bold;
+  font-size: 0.95rem;
+  border-radius: 0;
+  box-shadow: none !important;
+  outline: none !important;
+  text-align: left;
+  height: 38px;
+}
+.custom-border {
+  border: 1px solid var(--border-green, #1b6e6e);
+}
+
+.header-btn:focus,
+.header-btn:active,
+.header-btn:focus-visible {
+  background-color: #6ddad8 !important;
+  border: 1px solid var(--border-green, #1b6e6e) !important;
+  color: #000 !important;
+}
+
+.btn-yellow {
+  background-color: #ffec3d;
+  color: #000;
+  border: 1px solid #d4be00;
+  font-weight: bold;
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 6px 12px;
+}
+
+.btn-yellow:hover,
+.btn-yellow:focus,
+.btn-yellow:active,
+.btn-yellow:focus-visible {
+  background-color: #ffec3d !important;
+  color: #000 !important;
+  border-color: #d4be00 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.custom-tabs .nav-link {
+  background-color: #005959;
+  color: #ffff33;
+  border: 1px solid #004040;
+  border-radius: 0;
+  font-weight: bold;
+  height: 40px;
+  line-height: 1.2;
+}
+
+.custom-tabs .nav-link.active {
+  background-color: #ffec3d;
+  color: #000;
+  border-color: #d4be00;
+}
+.custom-tabs .nav-link:hover {
+  background-color: #ffec3d;
+  color: #000;
+  border-color: #d4be00;
+}
+
+.header-input-style {
+  background-color: #6ddad8;
+  border: 1px solid var(--border-green, #1b6e6e);
+  color: #000;
+  font-weight: bold;
+  font-size: 0.95rem;
+  border-radius: 0;
+  box-shadow: none !important;
+  outline: none !important;
+  text-align: left;
+  height: 38px;
+}
+
+.btn-otp-style {
+  background-color: #32d1d1;
+  color: #000307;
+  font-weight: bold;
+  font-size: 0.95rem;
+  height: 38px;
+  padding: 4px 14px;
+  border: none;
+  border-radius: 6px;
+  box-shadow: inset -2px -2px 3px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6), 0 0 0 1px #1b6e6e;
+  background-image: linear-gradient(to bottom, #6de6e6, #20b8b8);
+}
+
+.btn-otp-style:hover,
+.btn-otp-style:focus {
+  background-image: linear-gradient(to bottom, #5cd1d1, #1aa5a5);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3), 0 0 0 1px #1b6e6e;
+}
+
+.btn-yellow {
+  background-color: #ffec3d;
+  color: #000307;
+  font-weight: bold;
+  border: 1px solid #d4be00;
+  border-radius: 0;
+  height: 38px;
+  padding: 0 12px;
+  white-space: nowrap;
+}
+
+.test-selection-box .header-input-style {
+  background-color: #57d0cf;
+  border: 1px solid #3d918f;
+  font-weight: bold;
+  color: #000;
+}
+
+.test-selection-box .rendered-test-row {
+  background-color: #32c7c7;
+  border: 1px solid #167a7a;
+  padding: 6px 12px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.test-selection-box .delete-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+
+.test-selection-box .delete-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: red;
+  transition: fill 0.2s ease-in-out;
+}
+
+.test-selection-box .delete-btn:hover svg {
+  fill: darkred;
+}
+
+.sample-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  display: inline-block;
+}
+.barcode-box {
+  border: 2px solid #999;
+  padding: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+  width: 60px;
+}
+
+.due-collection-box .section-label {
+  background-color: #fbd4b5;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #167a7a;
+  padding: 10px;
+}
+.due-collection-box > .col-md-5 {
+  background-color: #efeadd;
+  padding: 8px;
+}
+
+table {
+  background-color: #e6f2fb;
+}
+
+.table-bordered td {
+  border: 1px solid #167a7a;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+}
+.badge {
+  font-size: 1rem;
+  padding: 0.4em 0.7em;
+}
+
+.form-control {
+  border-radius: 0 !important;
+}
