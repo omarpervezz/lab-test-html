@@ -6,7 +6,7 @@ body {
   --border-green: #529154;
   --bg-seafoam: #32cccc;
 }
-.container {
+.container-fluid {
   background-color: #32cccc;
 }
 .header-btn {
