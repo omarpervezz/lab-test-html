@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab Test Booking - Home</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="d-flex min-vh-100 justify-content-center align-items-center">
+    <div class="container py-3 px-3">
+      <!-- Row with Image Placeholder + Header Buttons -->
+      <div class="row mb-2 align-items-start">
+        <!-- Left Side Box (e.g., Logo or Blank) -->
+        <div class="col-12 col-md-4 mb-2 mb-md-0">
+          <div class="border bg-white" style="width: 100%; height: 100px"></div>
+        </div>
+
+        <!-- Right Side Content -->
+        <div class="col-12 col-md-8">
+          <!-- Top Row: Header Buttons  -->
+          <div class="row align-items-center mb-3">
+            <!-- Left: Test Details Search -->
+            <div class="col-md-6 mb-2 mb-md-0 d-flex align-items-center">
+              <input
+                type="text"
+                class="form-control header-input-style w-100"
+                placeholder="Test Details Search"
+              />
+            </div>
+
+            <!-- Right: Log in ID and Password -->
+            <div class="col-md-6 d-flex flex-column gap-2">
+              <input
+                type="text"
+                class="form-control header-input-style w-100"
+                placeholder="Log in ID"
+              />
+              <input
+                type="password"
+                class="form-control header-input-style w-100"
+                placeholder="Password"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Navigation -->
+      <ul
+        class="nav nav-tabs custom-tabs border-0 w-100 mb-3 d-flex justify-content-between gap-2 flex-wrap"
+        id="customTab"
+        role="tablist"
+      >
+        <li class="nav-item flex-fill" role="presentation">
+          <button
+            class="nav-link w-100 active rounded-2"
+            id="home-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#home"
+            type="button"
+            role="tab"
+          >
+            Home
+          </button>
+        </li>
+        <li class="nav-item flex-fill" role="presentation">
+          <button
+            class="nav-link w-100 rounded-2"
+            id="registration-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#registration"
+            type="button"
+            role="tab"
+          >
+            Registration
+          </button>
+        </li>
+        <li class="nav-item flex-fill" role="presentation">
+          <button
+            class="nav-link w-100 rounded-2"
+            id="phlebotomy-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#phlebotomy"
+            type="button"
+            role="tab"
+          >
+            Phlebotomy
+          </button>
+        </li>
+        <li class="nav-item flex-fill" role="presentation">
+          <button
+            class="nav-link w-100 rounded-2"
+            id="sample-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#sample"
+            type="button"
+            role="tab"
+          >
+            Sample Tracking
+          </button>
+        </li>
+        <li class="nav-item flex-fill" role="presentation">
+          <button
+            class="nav-link w-100 rounded-2"
+            id="blood-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#blood"
+            type="button"
+            role="tab"
+          >
+            Blood/Urine Tests
+          </button>
+        </li>
+        <li class="nav-item flex-fill" role="presentation">
+          <button
+            class="nav-link w-100 rounded-2"
+            id="body-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#body"
+            type="button"
+            role="tab"
+          >
+            Body Fluid Tests
+          </button>
+        </li>
+        <li class="nav-item flex-fill" role="presentation">
+          <button
+            class="nav-link rounded-2 w-100"
+            id="allergy-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#allergy"
+            type="button"
+            role="tab"
+          >
+            Allergy Testing
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div
+          class="tab-pane fade active show"
+          id="home"
+          role="tabpanel"
+          aria-labelledby="home-tab"
+        >
+          <div class="row g-3 mt-1">
+            <div class="col-md-7">
+              <!-- Lab Instruments Photos Box -->
+              <div class="custom-border p-4 text-center mb-4">
+                <h5 class="m-0 fw-semibold">
+                  <u>(( Lab Instruments photos scrolling ))</u>
+                </h5>
+              </div>
+
+              <!-- Vision and Mission Section -->
+              <div class="text-center">
+                <h5 class="fw-bold" style="color: #002c5b">VISION :</h5>
+                <p style="color: #002c5b" class="fw-semibold">
+                  Aim To Facilitate Public Health by Providing On-Time Accurate
+                  and Quality Diagnostic Services to Every Individual in India
+                  and The World.
+                </p>
+
+                <h5 class="fw-bold" style="color: #002c5b">MISSION :</h5>
+                <p style="color: #002c5b" class="fw-semibold">
+                  To Serve All Living Space in India and The World with Customer
+                  Centric Operations and Dedivative Team
+                </p>
+
+                <p class="fw-bold" style="color: #002c5b">
+                  CUSTOMERS REVIEW ABOUT ACCURACY MICRO LABS
+                </p>
+              </div>
+              <div class="custom-border p-4 text-center mb-4">
+                <h5 class="m-0 fw-semibold">
+                  <u>(( Overwhelmed Reviews Scrolling ))</u>
+                </h5>
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <div class="row g-3">
+                <!-- TESTLATER Box -->
+                <div class="col-12">
+                  <div
+                    class="p-3 text-center"
+                    style="
+                      background-color: #0a4d57;
+                      border: 2px solid yellow;
+                      color: white;
+                    "
+                  >
+                    <h5 class="fw-bold mb-2" style="color: #ffff33">
+                      <u>‘TESTLATER’</u>
+                    </h5>
+                    <p class="mb-1">
+                      BOOK YOUR<br />HOME COLLECTION<br />APPOINTMENT<br />(BLOOD
+                      & URINE)
+                    </p>
+                    <p class="fw-bold mb-0" style="color: #ffff33">BOOK NOW</p>
+                  </div>
+                </div>
+
+                <!-- TESTIMMEDIATE Box -->
+                <div class="col-12">
+                  <div
+                    class="p-3 text-center"
+                    style="
+                      background-color: #0a4d57;
+                      border: 2px solid yellow;
+                      color: white;
+                    "
+                  >
+                    <h5 class="fw-bold mb-2" style="color: #ffff33">
+                      <u>‘TESTIMMEDIATE’</u>
+                    </h5>
+                    <p class="mb-1">
+                      YOUR<br />HOME COLLECTION<br />With-in 30 Minutes<br />(BLOOD
+                      & URINE)
+                    </p>
+                    <p class="fw-bold mb-0" style="color: #ffff33">BOOK NOW</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle (with Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
